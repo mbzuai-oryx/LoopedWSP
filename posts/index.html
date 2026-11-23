@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LoopedWSP Launch Posts</title>
+<style>
+  :root {
+    --page: #eef0f2; --card: #ffffff; --ink: #0f1419; --ink2: #536471; --line: #e3e6e8;
+    --x-blue: #1d9bf0; --li-blue: #0a66c2; --li-ink: rgba(0,0,0,.9); --li-ink2: rgba(0,0,0,.6);
+    --warn: #f4212e; --amber: #ffad1f; --edit: #fff8e6;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--page); color: var(--ink);
+         font: 15px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  .bar { position: sticky; top: 0; z-index: 5; background: rgba(255,255,255,.94); backdrop-filter: blur(8px);
+         border-bottom: 1px solid var(--line); padding: 10px 16px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .bar h1 { font-size: 16px; margin: 0 8px 0 0; }
+  .bar .note { color: var(--ink2); font-size: 13px; flex: 1 1 260px; }
+  button { font: inherit; font-size: 13px; border: 1px solid #cfd9de; background: #fff; color: var(--ink);
+           border-radius: 999px; padding: 5px 12px; cursor: pointer; }
+  button:hover { background: #f2f4f5; }
+  button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  button.primary:hover { background: #272c30; }
+  .banner { max-width: 1228px; margin: 14px auto 0; padding: 10px 14px; background: #e8f3ff; border: 1px solid #b9d7f7;
+            border-radius: 10px; font-size: 13.5px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+  .banner[hidden] { display: none; }
+  .banner span { flex: 1 1 300px; }
+  .cols { display: flex; gap: 28px; justify-content: center; align-items: flex-start; padding: 20px 16px 80px; flex-wrap: wrap; }
+  .col { width: 100%; max-width: 600px; }
+  .col h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink2); margin: 0 0 10px;
+            display: flex; justify-content: space-between; align-items: center; }
+  .hint { font-size: 12.5px; color: var(--ink2); margin: 8px 2px 0; }
+  .toast { position: fixed; bottom: 18px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff;
+           padding: 8px 14px; border-radius: 8px; font-size: 13px; opacity: 0; transition: opacity .2s; pointer-events: none; }
+  .toast.show { opacity: 1; }
+
+  .text { white-space: pre-wrap; word-wrap: break-word; cursor: text; border-radius: 6px; }
+  .text:hover { background: var(--edit); }
+  textarea.editor { width: 100%; font: inherit; color: inherit; line-height: inherit; border: 2px solid var(--x-blue);
+                    border-radius: 8px; padding: 6px 8px; resize: none; background: #fff; overflow: hidden; display: block; }
+  .tools { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; margin-top: 8px; font-size: 12.5px; color: var(--ink2); }
+  .tools button { padding: 2px 9px; font-size: 12px; }
+  .tools select { font: inherit; font-size: 12px; border: 1px solid #cfd9de; border-radius: 999px; padding: 2px 6px; background: #fff; }
+
+  /* LinkedIn mock */
+  .li { background: var(--card); border-radius: 10px; box-shadow: 0 0 0 1px rgba(0,0,0,.08); color: var(--li-ink); max-width: 555px; }
+  .li-head { display: flex; gap: 8px; padding: 12px 16px 0; }
+  .li-av { width: 48px; height: 48px; border-radius: 50%; background: #154677; color: #fff; display: grid; place-items: center; font-weight: 600; flex: none; }
+  .li-name { font-weight: 600; font-size: 14px; }
+  .li-sub { font-size: 12px; color: var(--li-ink2); line-height: 1.35; }
+  .li-body { padding: 8px 16px 4px; font-size: 14px; line-height: 20px; }
+  .li-body .text.clamp { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+  .li-more { border: 0; background: none; padding: 0; color: var(--li-ink2); font-size: 14px; float: right; }
+  .li-more:hover { background: none; color: var(--li-blue); text-decoration: underline; }
+  .li a, .li .mention { color: var(--li-blue); font-weight: 600; text-decoration: none; }
+  .li a.mention:hover { text-decoration: underline; }
+  .li-media img { width: 100%; display: block; margin-top: 8px; }
+  .li-foot { display: flex; justify-content: space-around; border-top: 1px solid var(--line); margin: 8px 12px 0; padding: 4px 0; }
+  .li-foot span { color: var(--li-ink2); font-weight: 600; font-size: 13px; padding: 10px 8px; }
+  .li-comments { padding: 4px 16px 14px; }
+  .li-comments-title { font-size: 12.5px; color: var(--li-ink2); font-weight: 600; margin: 6px 0 10px; }
+  .lic { display: grid; grid-template-columns: 32px 1fr; gap: 8px; margin-bottom: 12px; }
+  .lic-av { width: 32px; height: 32px; border-radius: 50%; background: #154677; color: #fff; display: grid; place-items: center; font-size: 11px; font-weight: 600; }
+  .lic-bubble { background: #f2f2f2; border-radius: 0 8px 8px 8px; padding: 8px 12px 10px; font-size: 14px; line-height: 20px; }
+  .lic-name { font-weight: 600; font-size: 13.5px; margin-bottom: 2px; }
+  .lic-name .author { font-weight: 600; font-size: 11px; color: #fff; background: #56687a; border-radius: 3px; padding: 0 4px; margin-left: 6px; }
+  .lic-bubble img { width: 100%; display: block; border-radius: 6px; margin-top: 8px; }
+  .lic-meta { font-size: 12px; color: var(--li-ink2); font-weight: 600; margin: 4px 0 0 4px; }
+
+  /* X mock */
+  .x { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .xp { display: grid; grid-template-columns: 40px 1fr; gap: 12px; padding: 12px 16px 4px; position: relative; }
+  .xp .rail { position: relative; }
+  .x-av { width: 40px; height: 40px; border-radius: 50%; background: #154677; color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
+  .xp:not(:last-child) .rail::after { content: ""; position: absolute; left: 19px; top: 44px; bottom: -16px; width: 2px; background: #cfd9de; }
+  .x-head { display: flex; gap: 4px; align-items: baseline; font-size: 15px; }
+  .x-head b { font-weight: 700; }
+  .x-head span { color: var(--ink2); }
+  .x-body { font-size: 15px; line-height: 20px; margin-top: 2px; }
+  .x a, .x .mention { color: var(--x-blue); text-decoration: none; }
+  .x-media { margin-top: 12px; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+  .x-media img { width: 100%; display: block; max-height: 680px; object-fit: cover; }
+  .x-foot { display: flex; align-items: center; gap: 18px; color: var(--ink2); font-size: 13px; margin: 10px 0 4px; }
+  .x-icons { display: flex; gap: 44px; margin-left: auto; opacity: .55; filter: grayscale(1); }
+  .count { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+  .count svg { width: 20px; height: 20px; transform: rotate(-90deg); }
+  .count.over { color: var(--warn); font-weight: 700; }
+  .count.near { color: #b07400; }
+  .xp.overpost { background: #fff5f6; }
+  @media (max-width: 640px) { .cols { padding: 14px 10px 80px; gap: 22px; } }
+</style>
+</head>
+<body>
+<div class="bar">
+  <h1>Post preview</h1>
+  <div class="note">Click any text to edit it. Edits save in this browser. Nothing is posted anywhere.</div>
+  <button id="dl" class="primary">Download edited text</button>
+  <button id="reset">Reset to the draft</button>
+</div>
+<div class="banner" id="banner" hidden>
+  <span>This is the newest draft. Your earlier edits are saved, so nothing is lost.</span>
+  <button id="restore">Bring back my earlier edits</button>
+  <button id="dismiss">Keep the newest draft</button>
+</div>
+
+<div class="cols">
+  <section class="col">
+    <h2><span>LinkedIn</span><button id="copy-li">Copy post</button></h2>
+    <div class="li">
+      <div class="li-head">
+        <div class="li-av">AH</div>
+        <div><div class="li-name">Ahmed Heakl</div><div class="li-sub">MBZUAI<br>Now · 🌐</div></div>
+      </div>
+      <div class="li-body" id="li-body"></div>
+      <div class="li-media" id="li-media"></div>
+      <div class="li-foot"><span>👍 Like</span><span>💬 Comment</span><span>🔁 Repost</span><span>➤ Send</span></div>
+      <div class="li-comments">
+        <div class="li-comments-title">Your comments under the post</div>
+        <div id="li-comments"></div>
+      </div>
+    </div>
+    <div class="tools" id="li-tools"></div>
+    <div class="tools"><button id="add-c">+ Add a comment</button></div>
+    <p class="hint">The feed shows the first three lines, then "…see more". Post the comments yourself right after the post, in order. A pasted @name is not a tag on LinkedIn. Type @ and the name, then pick the person from the dropdown. Each co-author's name here links to the profile you sent, so you can check it's the right person.</p>
+  </section>
+
+  <section class="col">
+    <h2><span>X thread</span><button id="copy-x">Copy whole thread</button></h2>
+    <div class="x" id="x-thread"></div>
+    <div class="tools"><button id="add-x">+ Add a post at the end</button></div>
+    <p class="hint">The counter follows X's rules. Each link counts as 23 characters, and emoji and arrows count as 2. A post turns red past 280, the limit without Premium.</p>
+  </section>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const DRAFT = {"li": {"text": "Today we introduce Looped Weight-Space Programming.\n\nWe gave Claude Opus 5.5 a set of really hard mazes, 30×30 grids where the shortest path is over 110 steps long. It solved only 26% of them.\n\nSo we asked it to write a looped transformer that solves them instead, setting every single weight by hand. Under only 39 minutes and $19, Claude handed us 19,936 weights. That transformer solves 100% of the test mazes without any training, beating every open-source model on that task. \n\nThen we got curious how small it could go. We capped Claude to 1k weights to work with. It wrote a tiny model that still solves every test maze. The best trained models on this benchmark use about 1,900× more weights and still don't get to 100%.\n\nCheckout our Blog: https://mbzuai-oryx.github.io/LoopedWSP/\n\nI'm really proud of this one. Joint work with @Abdelrahman Elsayed (co-first author), @Abdelrahman Shaker, @Fahad Khan and @Salman Khan at MBZUAI. I'll put the details and the blog in the comments 👇", "media": "teaser.png", "comments": [{"text": "1/ How does the transformer Claude wrote work? The transformer is a one small block that runs in a loop. Each loop moves a shortest-path search one step further, so a bigger maze just needs more loops. We evaluated the same weights on 100×100 mazes and it solved every one, even though Claude had only checked it on mazes up to 45×45.", "media": "maze_hero.gif"}, {"text": "2/ Our first guess was that the architecture was the secret, so gradient descent should find the same weights. We reset Claude's transformer to random weights and trained it on the same mazes. It solved 0%, in every experiment we tried. We also trained the strongest looped models out there on one H200. Energy-Based Reasoners (EBR) did best, 93.5% for $11 of GPU time. TRM, HRM, FPRM and Looped Flows cost up to $284 and landed lower. None of them got to 100%.", "media": "maze_training.png"}, {"text": "3/ Mazes were only the start. Claude spent 27 minutes and about $5 writing a transformer for the 20-disk Tower of Hanoi, the puzzle reasoning models famously fall apart on around 7 or 8 disks. Ours plays all 1,048,575 moves without a single mistake. Claude also wrote ones for Sudoku-Extreme ($3), million-token GraphWalks prompts ($4) and BIG-Bench Extra Hard ($37). Each one solved every test problem we gave it.", "media": "hanoi_disks.png"}, {"text": "4/ It's cheaper too. Asking Claude to solve each maze directly cost us $0.14 to $0.34 a maze, and it still got most of them wrong. The $19 transformer pays for itself after about 55 to 134 mazes. After that you're not paying for API calls at all.\nCode and every weight → https://github.com/mbzuai-oryx/LoopedWSP", "media": ""}, {"text": "5/ You can also read the model. Claude decided what every number means before it set a single weight, so after any loop we can look inside and see each cell's distance, its next step and whether it's on the path. We even gave fresh Claude sessions only the weights, without telling them it was a maze. They worked out the whole algorithm in about two minutes.", "media": "interp_fig.png"}, {"text": "6/ This builds on Weight-Space Programming by @Rikiya Takehi, @Jayden Teoh, @Alex Zhang and @Omar Khattab at MIT, who showed LLMs can read and edit weights directly. Claude Opus 5.5 is on our author list too, since it wrote every single weight.", "media": ""}]}, "x": [{"text": "We introduce Looped Weight-Space Programming 🚀\n\nWe gave Claude Opus 5.5 hard mazes. It solved only 26%!\n\nSo we asked it to write a looped transformer instead, setting every single weight by hand. Under 39 minutes and $19, it handed us one that solves 100% with zero training.", "media": "teaser.png"}, {"text": "1/ This builds on Weight-Space Programming by @rikiyatakehi @jayden_teoh_ @a1zhang & @lateinteraction, which showed frontier LLMs can read and edit weights directly.\n\nWe wanted to know if an LLM could also write weights for reasoning problems that can take millions of steps.", "media": ""}, {"text": "2/ How does the transformer Claude wrote work? 💎\n\nIt is a single small block that runs in a loop. Each loop takes a step forward along the shortest-path search. Hence, a bigger maze just needs more loops. \n\nBlog → https://mbzuai-oryx.github.io/LoopedWSP/", "media": "maze_hero.gif"}, {"text": "3/ Is architecture the secret? If so, gradient descent should find the same weights. But training from scratch solves 0%.\n\nWe also trained best looped transformers. Energy-Based Reasoners (EBR) did best, 93.5% for $11. TRM, HRM, Looped Flows cost up to $284 and perform worse. [Add Yann Lecun]", "media": "maze_training.png"}, {"text": "4/ How small can it get? We gave fresh Claude Code sessions a cap on weights.\n\nWith a cap of 1,000, Claude wrote a maze transformer with only 928 weights for about $18, and it still solves 100%. That's ~1,900× fewer weights than LDT, the best trained model on Maze-Hard.", "media": "size_fig.png"}, {"text": "5/ Tower of Hanoi is where reasoning models collapse, starting at 7-8 disks.\n\nClaude wrote a Hanoi transformer of 3,686 weights in 27 minutes for $5. It plays all 1,048,575 moves of the 20-disk puzzle with zero mistakes. MAKER needed over 3 million LLM calls to do the same.", "media": "hanoi_disks.png"}, {"text": "6/ Claude wrote transformers the same way for Sudoku-Extreme ($3), GraphWalks with 1M-token prompts ($4) and BIG-Bench Extra Hard ($37). All three score 100%.\n\nElsewhere, the best results are 98.96% on Sudoku, 96.2% on GraphWalks, and 81.2% and 56.9% on the two BBEH tasks.", "media": "results_glance.png"}, {"text": "7/ Writing the transformer also beats paying for answers. Asking Claude to solve a maze directly cost $0.14 to $0.34 per maze in our runs, and it got at most half right.\n\nThe $19 maze transformer pays for itself after about 55 to 134 mazes, with no API calls after that. [remove it]", "media": ""}, {"text": "8/ Our approach offers better interpretability than weights set via Gradient Descent since Claude chooses the role of each weight before setting it.\n\nTo test it, we gave the written weights to a fresh Claude session and asked it what the numbers mean, and Claude worked out the whole algorithm in about 2 minutes 🔥", "media": "interp_fig.png"}, {"text": "9/ We think an LLM that can't solve a problem directly may still write a model that does.\nAll weights, code and prompts are public, and you can watch the maze transformer run in your browser, one loop at a time.\nBlog → https://mbzuai-oryx.github.io/LoopedWSP/\nDemo → https://mbzuai-oryx.github.io/LoopedWSP/demo/maze.html", "media": ""}, {"text": "10/ Huge thanks to my co-first author Abdelrahman Elsayed (@Python8723), and to Abdelrahman Shaker, Fahad Khan and Salman Khan (@KhanSalmanH) for their support. Claude Opus 5.5 is on the author list too, since it wrote every weight.\nCode → https://github.com/mbzuai-oryx/LoopedWSP", "media": ""}]};
+const PROFILES = {
+  "Abdelrahman Elsayed": "https://www.linkedin.com/in/abdelrahman-elsayed-289464275/",
+  "Abdelrahman Shaker": "https://www.linkedin.com/in/abdelrahman-shaker-74274b9b/",
+  "Fahad Khan": "https://www.linkedin.com/in/fahad-khan-25b3006/",
+  "Salman Khan": "https://www.linkedin.com/in/salman-khan-12184128/",
+};
+const MEDIA = ["", "teaser.png", "maze_hero.gif", "maze_training.png", "hanoi_disks.png", "interp_fig.png", "results_glance.png", "size_fig.png", "maze_demo.gif"];
+const KEY = "loopedwsp-public-posts-v2", EARLIER = KEY + "-earlier", VERSION = 9;
+const clone = (o) => JSON.parse(JSON.stringify(o));
+const store = {
+  get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch (e) { return null; } },
+  set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} },
+};
+function normalize(s) {
+  if (!s.li.comments) s.li.comments = clone(DRAFT.li.comments);
+  s.x.forEach(p => { if (p.media === "maze_demo.gif") p.media = "maze_hero.gif"; });
+  s.v = VERSION; return s;
+}
+// From here on, updates arrive as small patches applied on top of the reader's saved version, never a reset.
+const PATCHES = [{"id": "p10-cut-gd", "op": "replace", "target": "x", "find": "The strongest trained models on one H200 were Energy-Based Reasoners (EBR) at 93.5% for $11.", "repl": "The best trained model on one H200 was Energy-Based Reasoners (EBR) at 93.5% for $11."}, {"id": "p10-cut-hanoi", "op": "replace", "target": "x", "find": "Tower of Hanoi is where reasoning models famously collapse, starting at 7-8 disks.", "repl": "Tower of Hanoi is where reasoning models collapse, starting at 7-8 disks."}, {"id": "p10-cut-others", "op": "replace", "target": "x", "find": "The best results we found elsewhere are 98.96% on Sudoku", "repl": "Elsewhere, the best results are 98.96% on Sudoku"}, {"id": "p10-number-x", "op": "numberX"}, {"id": "p10-size-fig", "op": "xMedia", "find": "How small can it get?", "media": "size_fig.png"}, {"id": "p10-li-interp", "op": "insertComment", "before": "5/ This builds on Weight-Space Programming", "marker": "You can also read the model.", "media": "interp_fig.png", "text": "5/ You can also read the model. Claude decided what every number means before it set a single weight, so after any loop we can look inside and see each cell's distance, its next step and whether it's on the path. We even gave fresh Claude sessions only the weights, without telling them it was a maze. They worked out the whole algorithm in about two minutes."}, {"id": "p10-li-renumber-wsp", "op": "replace", "target": "comments", "find": "5/ This builds on Weight-Space Programming", "repl": "6/ This builds on Weight-Space Programming"}];
+function applyPatch(s, p) {
+  const pick = (t) => t === "x" ? s.x : t === "li" ? [s.li] : s.li.comments;
+  if (p.op === "replace") { const it = pick(p.target).find(i => i.text.includes(p.find)); if (it) it.text = it.text.replace(p.find, p.repl); }
+  else if (p.op === "numberX") s.x.forEach((q, i) => { const t = q.text.replace(/^\d+\/\s*/, ""); q.text = i === 0 ? t : `${i}/ ${t}`; });
+  else if (p.op === "xMedia") { const q = s.x.find(i => i.text.includes(p.find)); if (q) q.media = p.media; }
+  else if (p.op === "insertComment") {
+    const cs = s.li.comments;
+    if (!cs.some(c => c.text.includes(p.marker))) {
+      const k = cs.findIndex(c => c.text.includes(p.before)), item = { text: p.text, media: p.media };
+      if (k < 0) cs.push(item); else cs.splice(k, 0, item);
+    }
+  }
+}
+let state, saved = store.get(KEY), patched = 0;
+if (saved && saved.li && Array.isArray(saved.x)) {
+  state = saved;
+  if (!state.li.comments) state.li.comments = clone(DRAFT.li.comments);
+  state.applied = state.applied || [];
+  PATCHES.forEach(p => { if (!state.applied.includes(p.id)) { applyPatch(state, p); state.applied.push(p.id); patched++; } });
+} else { state = clone(DRAFT); state.applied = PATCHES.map(p => p.id); }
+let liOpen = false, editing = null;
+
+function save() { store.set(KEY, state); }
+function toast(msg) { const t = document.getElementById("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove("show"), 1400); }
+function esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+const URL_RE = /https?:\/\/[^\s]+/g;
+
+function xLen(t) {
+  let n = 0;
+  const rest = t.replace(URL_RE, () => { n += 23; return ""; });
+  for (const ch of rest) {
+    const c = ch.codePointAt(0);
+    n += (c <= 4351 || (c >= 8192 && c <= 8205) || (c >= 8208 && c <= 8223) || (c >= 8242 && c <= 8247)) ? 1 : 2;
+  }
+  return n;
+}
+function fmtX(t) {
+  return esc(t).replace(/https?:\/\/[^\s]+/g, u => {
+    let d = u.replace(/^https?:\/\//, "").replace(/^www\./, "");
+    if (d.length > 26) d = d.slice(0, 26) + "…";
+    return `<a href="${u}" target="_blank" rel="noopener">${d}</a>`;
+  }).replace(/(^|[^\w])@(\w{1,15})/g, '$1<span class="mention">@$2</span>');
+}
+function fmtLI(t) {
+  return esc(t).replace(/https?:\/\/[^\s]+/g, u => `<a href="${u}" target="_blank" rel="noopener">${u}</a>`)
+    .replace(/@([A-Z][\w-]*(?: [A-Z][\w-]*)?)/g, (m, name) => PROFILES[name]
+      ? `<a class="mention" href="${PROFILES[name]}" target="_blank" rel="noopener" title="Their LinkedIn profile">${name}</a>`
+      : `<span class="mention">${name}</span>`)
+    .replace(/(^|\s)#(\w+)/g, '$1<a>#$2</a>');
+}
+function mediaSelect(cur, onChange) {
+  const s = document.createElement("select");
+  MEDIA.forEach(m => { const o = document.createElement("option"); o.value = m; o.textContent = m || "no image"; if (m === cur) o.selected = true; s.appendChild(o); });
+  s.onchange = () => onChange(s.value);
+  return s;
+}
+function btn(label, fn) { const b = document.createElement("button"); b.textContent = label; b.onclick = fn; return b; }
+function startEdit(host, get, set, after) {
+  if (editing) return;
+  const ta = document.createElement("textarea");
+  ta.className = "editor"; ta.value = get();
+  const grow = () => { ta.style.height = "auto"; ta.style.height = ta.scrollHeight + "px"; };
+  ta.oninput = () => { set(ta.value); save(); grow(); after && after(); };
+  ta.onblur = () => { editing = null; render(); };
+  ta.onkeydown = e => { if (e.key === "Escape") ta.blur(); };
+  host.replaceWith(ta); editing = ta; grow(); ta.focus();
+}
+function listTools(list, i, label, rerender) {
+  const N = list.length, out = [];
+  if (i > 0) out.push(btn("↑", () => { [list[i - 1], list[i]] = [list[i], list[i - 1]]; save(); rerender(); }));
+  if (i < N - 1) out.push(btn("↓", () => { [list[i + 1], list[i]] = [list[i], list[i + 1]]; save(); rerender(); }));
+  out.push(btn("Delete", () => { if (confirm(`Delete this ${label}?`)) { list.splice(i, 1); save(); rerender(); } }));
+  return out;
+}
+
+function renderLI() {
+  const body = document.getElementById("li-body"); body.innerHTML = "";
+  const tx = document.createElement("div"); tx.className = "text" + (liOpen ? "" : " clamp"); tx.innerHTML = fmtLI(state.li.text); tx.title = "Click to edit";
+  tx.onclick = e => { if (e.target.closest("a")) return; startEdit(tx, () => state.li.text, v => state.li.text = v, liCount); };
+  body.appendChild(tx);
+  const more = document.createElement("button"); more.className = "li-more"; more.textContent = liOpen ? "show less" : "…see more";
+  more.onclick = () => { liOpen = !liOpen; renderLI(); };
+  body.appendChild(more);
+  document.getElementById("li-media").innerHTML = state.li.media ? `<img src="assets/${state.li.media}" alt="">` : "";
+  const tools = document.getElementById("li-tools"); tools.innerHTML = "";
+  tools.append("Post image ", mediaSelect(state.li.media, v => { state.li.media = v; save(); renderLI(); }));
+  const c = document.createElement("span"); c.id = "li-count"; tools.appendChild(c); liCount();
+
+  const host = document.getElementById("li-comments"); host.innerHTML = "";
+  state.li.comments.forEach((cm, i) => {
+    const el = document.createElement("div"); el.className = "lic";
+    el.innerHTML = `<div class="lic-av">AH</div><div class="lic-main"><div class="lic-bubble"><div class="lic-name">Ahmed Heakl<span class="author">Author</span></div></div><div class="lic-meta">Like · Reply</div></div>`;
+    const bubble = el.querySelector(".lic-bubble");
+    const t = document.createElement("div"); t.className = "text"; t.innerHTML = fmtLI(cm.text); t.title = "Click to edit";
+    bubble.appendChild(t);
+    if (cm.media) bubble.insertAdjacentHTML("beforeend", `<img src="assets/${cm.media}" alt="">`);
+    const n = document.createElement("span");
+    const upd = () => { n.textContent = ` ${cm.text.length.toLocaleString()} / 1,250`; n.style.color = cm.text.length > 1250 ? "var(--warn)" : ""; };
+    t.onclick = e => { if (e.target.closest("a")) return; startEdit(t, () => cm.text, v => cm.text = v, upd); };
+    const tl = document.createElement("div"); tl.className = "tools";
+    tl.append(`Comment ${i + 1} · Image `, mediaSelect(cm.media, v => { cm.media = v; save(); renderLI(); }), n,
+              btn("Copy", () => copy(cm.text, `Comment ${i + 1} copied`)), ...listTools(state.li.comments, i, "comment", renderLI));
+    upd();
+    el.querySelector(".lic-main").appendChild(tl);
+    host.appendChild(el);
+  });
+}
+function liCount() {
+  const n = state.li.text.length, c = document.getElementById("li-count");
+  if (c) { c.textContent = ` ${n.toLocaleString()} / 3,000 characters`; c.style.color = n > 3000 ? "var(--warn)" : ""; }
+}
+function ring(n) {
+  const r = 8, C = 2 * Math.PI * r, f = Math.min(n / 280, 1);
+  const col = n > 280 ? "var(--warn)" : n > 260 ? "var(--amber)" : "var(--x-blue)";
+  return `<svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="${r}" fill="none" stroke="#e7ecf0" stroke-width="2"/>` +
+         `<circle cx="10" cy="10" r="${r}" fill="none" stroke="${col}" stroke-width="2" stroke-dasharray="${C * f} ${C}"/></svg>`;
+}
+function renderX() {
+  const host = document.getElementById("x-thread"); host.innerHTML = "";
+  const N = state.x.length;
+  state.x.forEach((p, i) => {
+    const el = document.createElement("article"); el.className = "xp";
+    el.innerHTML = `<div class="rail"><div class="x-av">AH</div></div><div class="main"><div class="x-head"><b>Ahmed Heakl</b><span>· 1m</span></div></div>`;
+    const main = el.querySelector(".main");
+    const tx = document.createElement("div"); tx.className = "text x-body"; tx.innerHTML = fmtX(p.text); tx.title = "Click to edit";
+    main.appendChild(tx);
+    if (p.media) main.insertAdjacentHTML("beforeend", `<div class="x-media"><img src="assets/${p.media}" alt=""></div>`);
+    const foot = document.createElement("div"); foot.className = "x-foot";
+    const cnt = document.createElement("span"); cnt.className = "count"; foot.appendChild(cnt);
+    foot.insertAdjacentHTML("beforeend", '<span class="x-icons"><span>💬</span><span>🔁</span><span>♡</span><span>📊</span></span>');
+    main.appendChild(foot);
+    const upd = () => { const n = xLen(p.text); cnt.innerHTML = ring(n) + `${n} / 280`; cnt.className = "count" + (n > 280 ? " over" : n > 260 ? " near" : ""); el.classList.toggle("overpost", n > 280); };
+    upd();
+    tx.onclick = e => { if (e.target.closest("a")) return; startEdit(tx, () => p.text, v => p.text = v, upd); };
+    const tools = document.createElement("div"); tools.className = "tools";
+    tools.append(`Post ${i + 1} of ${N} · Image `, mediaSelect(p.media, v => { p.media = v; save(); renderX(); }),
+                 btn("Copy", () => copy(p.text, `Post ${i + 1} copied`)), ...listTools(state.x, i, "post", renderX));
+    main.appendChild(tools);
+    host.appendChild(el);
+  });
+}
+function render() { renderLI(); renderX(); }
+
+function copy(text, msg) {
+  const done = () => toast(msg);
+  const fallback = () => { const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand("copy"); done(); } catch (e) { toast("Copy failed"); } t.remove(); };
+  if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+}
+function exportText() {
+  let out = "# X thread\n";
+  const N = state.x.length;
+  state.x.forEach((p, i) => { out += `\n${i === 0 ? "0" : i === N - 1 ? "thanks" : i + "/" + (N - 2)}${p.media ? " (attach assets/" + p.media + ")" : ""}\n${p.text}\n`; });
+  out += `\n# LinkedIn${state.li.media ? " (attach assets/" + state.li.media + ")" : ""}\n\n${state.li.text}\n\n# LinkedIn comments\n`;
+  state.li.comments.forEach((c, i) => { out += `\nc${i + 1}${c.media ? " (attach assets/" + c.media + ")" : ""}\n${c.text}\n`; });
+  return out;
+}
+document.getElementById("copy-li").onclick = () => copy(state.li.text, "LinkedIn post copied");
+document.getElementById("copy-x").onclick = () => copy(state.x.map(p => p.text).join("\n\n---\n\n"), "Whole thread copied");
+document.getElementById("add-x").onclick = () => { state.x.push({ text: "New post", media: "" }); save(); renderX(); };
+document.getElementById("add-c").onclick = () => { state.li.comments.push({ text: "New comment", media: "" }); save(); renderLI(); };
+document.getElementById("reset").onclick = () => { if (confirm("Throw away your edits and go back to the draft?")) { state = clone(DRAFT); state.applied = PATCHES.map(p => p.id); save(); render(); toast("Back to the draft"); } };
+document.getElementById("restore").onclick = () => { const e = store.get(EARLIER); if (e) { state = normalize(e); state.applied = []; PATCHES.forEach(p => { applyPatch(state, p); state.applied.push(p.id); }); save(); render(); toast("Your earlier edits are back"); } document.getElementById("banner").hidden = true; };
+document.getElementById("dismiss").onclick = () => { document.getElementById("banner").hidden = true; };
+document.getElementById("dl").onclick = () => {
+  const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([exportText()], { type: "text/markdown" }));
+  a.download = "social_posts_edited.md"; document.body.appendChild(a); a.click(); a.remove(); toast("Saved to Downloads");
+};
+render(); save();
+if (patched) toast(`Applied ${patched} small updates on top of your version`);
+</script>
+</body>
+</html>
