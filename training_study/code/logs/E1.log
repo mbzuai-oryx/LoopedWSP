@@ -1,0 +1,5 @@
+E1_unroll_nost_gather {"step": 1000, "time": 159, "n15": {"solved_state": 0.05, "solved_readout": 0.0, "every_loop_exact": 0.02}}
+E1_unroll_nost_gather {"step": 2000, "time": 324, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 0.98}, "n15_x2": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 0.98}, "n21": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 0.98}}
+E1_unroll_nost_gather {"step": 3000, "time": 507, "n15": {"solved_state": 0.96, "solved_readout": 0.96, "every_loop_exact": 0.42}}
+E1_unroll_nost_gather {"step": 4000, "time": 675, "n15": {"solved_state": 0.97, "solved_readout": 0.97, "every_loop_exact": 0.46}, "n15_x2": {"solved_state": 0.97, "solved_readout": 0.97, "every_loop_exact": 0.46}, "n21": {"solved_state": 0.94, "solved_readout": 0.94, "every_loop_exact": 0.49}}
+E1_unroll_nost_gather {"step": 5000, "time": 861, "n15": {"solved_state": 0.97, "solved_readout": 0.97, "every_loop_exact": 0.73}, "n15_x2": {"solved_state": 0.97, "solved_readout": 0.97, "every_loop_exact": 0.73}, "n21": {"solved_state": 0.94, "solved_readout": 0.94, "every_loop_exact": 0.76}}

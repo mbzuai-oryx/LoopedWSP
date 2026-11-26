@@ -1,0 +1,5 @@
+E3b_continue_learned {"step": 2000, "time": 374, "n15": {"solved_state": 0.65, "solved_readout": 0.65, "every_loop_exact": 0.0}}
+E3b_continue_learned {"step": 4000, "time": 759, "n15": {"solved_state": 0.66, "solved_readout": 0.66, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.66, "solved_readout": 0.66, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+E3b_continue_learned {"step": 6000, "time": 1171, "n15": {"solved_state": 0.62, "solved_readout": 0.62, "every_loop_exact": 0.0}}
+E3b_continue_learned {"step": 8000, "time": 1457, "n15": {"solved_state": 0.73, "solved_readout": 0.73, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.73, "solved_readout": 0.73, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+E3b_continue_learned {"step": 10000, "time": 2059, "n15": {"solved_state": 0.73, "solved_readout": 0.73, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.73, "solved_readout": 0.73, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}

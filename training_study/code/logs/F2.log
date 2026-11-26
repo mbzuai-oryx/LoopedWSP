@@ -1,0 +1,8 @@
+F2_local_relbias_mixed {"step": 1000, "time": 404, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+F2_local_relbias_mixed {"step": 2000, "time": 792, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+F2_local_relbias_mixed {"step": 3000, "time": 1213, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}}
+F2_local_relbias_mixed {"step": 4000, "time": 1545, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.68, "solved_readout": 0.68, "every_loop_exact": 0.0}}
+F2_local_relbias_mixed {"step": 5000, "time": 1950, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}}
+F2_local_relbias_mixed {"step": 6000, "time": 2316, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.0}}
+F2_local_relbias_mixed {"step": 7000, "time": 2936, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.09}}
+F2_local_relbias_mixed {"step": 8000, "time": 3447, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.27}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.27}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.21}}

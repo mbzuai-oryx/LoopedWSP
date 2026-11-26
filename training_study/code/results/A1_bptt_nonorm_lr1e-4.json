@@ -1,0 +1,1 @@
+{"args": {"mode": "bptt", "norm": false, "lr": 0.0001, "steps": 2000, "bs": 16, "n": 15, "ntrain": 1000, "seed": 0, "noise": 0.0, "st": false, "balanced": false, "clip": 1.0, "init": "random", "hidden": 86, "width": 35, "tbptt": 0, "eval_every": 500, "name": "A1_bptt_nonorm_lr1e-4", "threads": 2, "gen": "21:40"}, "evals": [], "loss": [], "diverged_at": 1}

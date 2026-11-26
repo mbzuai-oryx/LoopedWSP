@@ -1,0 +1,4 @@
+S2_scratch_full {"step": 2000, "time": 987, "n15": {"solved_state": 0.95, "solved_readout": 0.95, "every_loop_exact": 0.95}}
+S2_scratch_full {"step": 4000, "time": 2020, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n15_x2": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n21": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}}
+S2_scratch_full {"step": 6000, "time": 3431, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}}
+S2_scratch_full {"step": 8000, "time": 4374, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n15_x2": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n21": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}}

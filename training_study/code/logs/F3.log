@@ -1,0 +1,4 @@
+F3_learned_offsetaug {"step": 2000, "time": 567, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+F3_learned_offsetaug {"step": 4000, "time": 1076, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+F3_learned_offsetaug {"step": 6000, "time": 1601, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+F3_learned_offsetaug {"step": 8000, "time": 2069, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}

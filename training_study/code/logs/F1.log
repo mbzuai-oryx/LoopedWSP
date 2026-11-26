@@ -1,0 +1,8 @@
+F1_local_relbias {"step": 1000, "time": 378, "n15": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+F1_local_relbias {"step": 2000, "time": 738, "n15": {"solved_state": 0.09, "solved_readout": 0.09, "every_loop_exact": 0.01}, "n15_x2": {"solved_state": 0.09, "solved_readout": 0.09, "every_loop_exact": 0.01}, "n21": {"solved_state": 0.04, "solved_readout": 0.04, "every_loop_exact": 0.0}}
+F1_local_relbias {"step": 3000, "time": 1141, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.05}}
+F1_local_relbias {"step": 4000, "time": 1442, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.09}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.09}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.02}}
+F1_local_relbias {"step": 5000, "time": 1821, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.11}}
+F1_local_relbias {"step": 6000, "time": 2131, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.0}}
+F1_local_relbias {"step": 7000, "time": 2690, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.08}}
+F1_local_relbias {"step": 8000, "time": 3167, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.15}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.15}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.13}}

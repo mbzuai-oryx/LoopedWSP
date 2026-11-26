@@ -1,0 +1,344 @@
+{
+ "results/F1_local_relbias.pt": [
+  {
+   "maze": 9,
+   "loop": 34,
+   "n_cells": 1,
+   "cell": [
+    5,
+    4
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 33,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 12,
+   "loop": 20,
+   "n_cells": 1,
+   "cell": [
+    1,
+    11
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 19,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 15,
+   "loop": 29,
+   "n_cells": 1,
+   "cell": [
+    5,
+    6
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 28,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 18,
+   "loop": 24,
+   "n_cells": 1,
+   "cell": [
+    4,
+    3
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 23,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 22,
+   "loop": 48,
+   "n_cells": 1,
+   "cell": [
+    5,
+    2
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 33,
+   "on_path": false,
+   "path_idx": -1
+  },
+  {
+   "maze": 24,
+   "loop": 22,
+   "n_cells": 1,
+   "cell": [
+    3,
+    11
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 21,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 26,
+   "loop": 20,
+   "n_cells": 2,
+   "cell": [
+    7,
+    12
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 19,
+   "on_path": false,
+   "path_idx": -1
+  },
+  {
+   "maze": 32,
+   "loop": 20,
+   "n_cells": 1,
+   "cell": [
+    9,
+    13
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 19,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 38,
+   "loop": 32,
+   "n_cells": 1,
+   "cell": [
+    6,
+    1
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 31,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 41,
+   "loop": 17,
+   "n_cells": 1,
+   "cell": [
+    1,
+    7
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 16,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 52,
+   "loop": 27,
+   "n_cells": 2,
+   "cell": [
+    8,
+    13
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 26,
+   "on_path": false,
+   "path_idx": -1
+  },
+  {
+   "maze": 60,
+   "loop": 20,
+   "n_cells": 2,
+   "cell": [
+    12,
+    1
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 19,
+   "on_path": false,
+   "path_idx": -1
+  },
+  {
+   "maze": 65,
+   "loop": 17,
+   "n_cells": 1,
+   "cell": [
+    13,
+    10
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 16,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 73,
+   "loop": 35,
+   "n_cells": 1,
+   "cell": [
+    5,
+    10
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 34,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 74,
+   "loop": 39,
+   "n_cells": 1,
+   "cell": [
+    2,
+    1
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 38,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 76,
+   "loop": 36,
+   "n_cells": 1,
+   "cell": [
+    2,
+    13
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 35,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 85,
+   "loop": 24,
+   "n_cells": 1,
+   "cell": [
+    5,
+    2
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 23,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 90,
+   "loop": 18,
+   "n_cells": 1,
+   "cell": [
+    11,
+    1
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 17,
+   "on_path": true,
+   "path_idx": 1
+  },
+  {
+   "maze": 93,
+   "loop": 27,
+   "n_cells": 2,
+   "cell": [
+    8,
+    5
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 26,
+   "on_path": false,
+   "path_idx": -1
+  },
+  {
+   "maze": 94,
+   "loop": 19,
+   "n_cells": 1,
+   "cell": [
+    1,
+    6
+   ],
+   "fields": [
+    "path"
+   ],
+   "is_start": false,
+   "is_goal": false,
+   "dist_SG": 18,
+   "on_path": true,
+   "path_idx": 1
+  }
+ ]
+}

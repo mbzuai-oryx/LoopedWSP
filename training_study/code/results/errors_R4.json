@@ -1,0 +1,23 @@
+{
+ "results/R4_tf_gather.pt": {
+  "wave:should_change": 9859,
+  "wave:should_change_wrong": 0,
+  "wave:should_stay": 2363891,
+  "wave:should_stay_wrong": 0,
+  "pointer:should_change": 9859,
+  "pointer:should_change_wrong": 0,
+  "pointer:should_stay": 2363891,
+  "pointer:should_stay_wrong": 0,
+  "path:should_change": 2648,
+  "path:should_change_wrong": 365,
+  "path:should_stay": 2371102,
+  "path:should_stay_wrong": 0,
+  "wave:err_rate_change": 0.0,
+  "wave:err_rate_stay": 0.0,
+  "pointer:err_rate_change": 0.0,
+  "pointer:err_rate_stay": 0.0,
+  "path:err_rate_change": 0.13783987915407855,
+  "path:err_rate_stay": 0.0,
+  "margin_quantiles_0.001_0.01_0.5": null
+ }
+}
