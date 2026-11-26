@@ -1,0 +1,9 @@
+{"note": "Transcribed from diag2.py stdout (run was stopped before its json.dump during the slow flip test, which diag3.py replaces). 40 test mazes 15x15, 3 noise seeds, relative weight noise w -> w(1+eps*z) on the named tensors only.",
+ "basin_by_group": {
+  "position embedding (E_row, E_col)": {"0.001": 0.5917, "0.01": 0.0, "0.1": 0.0},
+  "char embedding": {"0.001": 1.0, "0.01": 1.0, "0.1": 0.0},
+  "attention Wq": {"0.001": 1.0, "0.01": 1.0, "0.1": 0.0},
+  "attention Wk, Wv, Wo": {"0.001": 1.0, "0.01": 1.0, "0.1": 0.0},
+  "MLP": {"0.001": 1.0, "0.01": 1.0, "0.1": 0.0},
+  "readout": {"0.001": 1.0, "0.01": 1.0, "0.1": 1.0}},
+ "attn_gap_solve": {"100": 1.0, "30": 1.0, "10": 1.0, "7": 1.0, "5": 1.0, "3": 0.0, "2": 0.0, "1": 0.0}}

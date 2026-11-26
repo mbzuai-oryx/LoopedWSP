@@ -1,0 +1,22 @@
+{"model": "results/R5_tf_gather_chg.pt", "size": 15, "n": 100, "loops": "1T", "solved_state": 95, "solved_readout": 20, "every_loop_exact": 3}
+{"model": "results/E1_unroll_nost_gather.pt", "size": 31, "n": 30, "loops": "1T", "solved_state": 28, "solved_readout": 28, "every_loop_exact": 22}
+{"model": "results/E2_unroll_nost_relbias.pt", "size": 31, "n": 30, "loops": "1T", "solved_state": 1, "solved_readout": 1, "every_loop_exact": 0}
+{"model": "results/F1_local_relbias.pt", "size": 31, "n": 30, "loops": "1T", "solved_state": 19, "solved_readout": 19, "every_loop_exact": 6}
+{"model": "results/H1_step2000.pt", "size": 31, "n": 30, "loops": "1T", "solved_state": 30, "solved_readout": 30, "every_loop_exact": 30}
+{"model": "results/H1_step2000.pt", "size": 61, "n": 10, "loops": "1T", "solved_state": 10, "solved_readout": 10, "every_loop_exact": 10}
+{"model": "results/H1_hinge_local.pt", "size": 15, "n": 100, "seed": 123, "loops": "1T", "solved_state": 100, "solved_readout": 100, "every_loop_exact": 100}
+{"model": "results/H1_hinge_local.pt", "size": 21, "n": 50, "seed": 124, "loops": "1T", "solved_state": 50, "solved_readout": 50, "every_loop_exact": 50}
+{"model": "results/H1_hinge_local.pt", "size": 15, "n": 100, "seed": null, "loops": "4T", "solved_state": 100, "solved_readout": 100, "every_loop_exact": 100}
+{"model": "results/H2_hinge_relbias.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 1, "solved_readout": 1, "every_loop_exact": 0}
+{"model": "results/A_nolocal.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 0, "solved_readout": 0, "every_loop_exact": 0}
+{"model": "results/A_nofocus.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 30, "solved_readout": 30, "every_loop_exact": 30}
+{"model": "results/S0_scratch_full.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 30, "solved_readout": 30, "every_loop_exact": 30}
+{"model": "results/S1_scratch_full.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 30, "solved_readout": 30, "every_loop_exact": 30}
+{"model": "results/S2_scratch_full.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 30, "solved_readout": 30, "every_loop_exact": 30}
+{"model": "results/A_nohinge.pt", "size": 31, "n": 30, "seed": null, "loops": "1T", "solved_state": 19, "solved_readout": 19, "every_loop_exact": 19}
+{"model": "results/S0_scratch_full.pt", "size": 15, "n": 100, "seed": 123, "loops": "1T", "solved_state": 100, "solved_readout": 100, "every_loop_exact": 100}
+{"model": "results/S2_scratch_full.pt", "size": 15, "n": 100, "seed": 123, "loops": "1T", "solved_state": 100, "solved_readout": 100, "every_loop_exact": 100}
+{"model": "results/S1_scratch_full.pt", "size": 15, "n": 100, "seed": 123, "loops": "1T", "solved_state": 100, "solved_readout": 100, "every_loop_exact": 100}
+{"model": "results/S0_scratch_full.pt", "size": 61, "n": 10, "seed": null, "loops": "1T", "solved_state": 10, "solved_readout": 10, "every_loop_exact": 10}
+{"model": "results/S1_scratch_full.pt", "size": 61, "n": 10, "seed": null, "loops": "1T", "solved_state": 10, "solved_readout": 10, "every_loop_exact": 10}
+{"model": "results/S2_scratch_full.pt", "size": 61, "n": 10, "seed": null, "loops": "1T", "solved_state": 10, "solved_readout": 10, "every_loop_exact": 10}

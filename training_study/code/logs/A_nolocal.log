@@ -1,0 +1,4 @@
+A_nolocal {"step": 2000, "time": 830, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 0.99}}
+A_nolocal {"step": 4000, "time": 1672, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n15_x2": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n21": {"solved_state": 0.85, "solved_readout": 0.89, "every_loop_exact": 0.85}}
+A_nolocal {"step": 6000, "time": 2684, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}}
+A_nolocal {"step": 8000, "time": 3742, "n15": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n15_x2": {"solved_state": 1.0, "solved_readout": 1.0, "every_loop_exact": 1.0}, "n21": {"solved_state": 0.89, "solved_readout": 0.93, "every_loop_exact": 0.89}}

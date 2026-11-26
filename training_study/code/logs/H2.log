@@ -1,0 +1,3 @@
+H2_hinge_relbias {"step": 1000, "time": 424, "n15": {"solved_state": 0.97, "solved_readout": 0.97, "every_loop_exact": 0.97}}
+H2_hinge_relbias {"step": 2000, "time": 802, "n15": {"solved_state": 0.94, "solved_readout": 0.94, "every_loop_exact": 0.93}, "n15_x2": {"solved_state": 0.94, "solved_readout": 0.94, "every_loop_exact": 0.93}, "n21": {"solved_state": 0.89, "solved_readout": 0.89, "every_loop_exact": 0.89}}
+H2_hinge_relbias {"step": 3000, "time": 1201, "n15": {"solved_state": 0.99, "solved_readout": 0.99, "every_loop_exact": 0.99}, "n15_x2": {"solved_state": 0.99, "solved_readout": 0.99, "every_loop_exact": 0.99}, "n21": {"solved_state": 0.91, "solved_readout": 0.91, "every_loop_exact": 0.91}}

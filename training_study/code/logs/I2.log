@@ -1,0 +1,3 @@
+I2_ties_relbias {"step": 1000, "time": 414, "n15": {"solved_state": 0.86, "solved_readout": 0.86, "every_loop_exact": 0.86}}
+I2_ties_relbias {"step": 2000, "time": 747, "n15": {"solved_state": 0.86, "solved_readout": 0.86, "every_loop_exact": 0.86}, "n15_x2": {"solved_state": 0.86, "solved_readout": 0.86, "every_loop_exact": 0.86}, "n21": {"solved_state": 0.82, "solved_readout": 0.82, "every_loop_exact": 0.82}}
+I2_ties_relbias {"step": 3000, "time": 1167, "n15": {"solved_state": 0.87, "solved_readout": 0.87, "every_loop_exact": 0.87}, "n15_x2": {"solved_state": 0.87, "solved_readout": 0.87, "every_loop_exact": 0.87}, "n21": {"solved_state": 0.82, "solved_readout": 0.82, "every_loop_exact": 0.82}}

@@ -1,0 +1,4 @@
+A_nohinge {"step": 2000, "time": 979, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.4}}
+A_nohinge {"step": 4000, "time": 2004, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.8}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.8}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.69}}
+A_nohinge {"step": 6000, "time": 3396, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.8}}
+A_nohinge {"step": 8000, "time": 4345, "n15": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.8}, "n15_x2": {"solved_state": 0.8, "solved_readout": 0.8, "every_loop_exact": 0.8}, "n21": {"solved_state": 0.69, "solved_readout": 0.69, "every_loop_exact": 0.69}}

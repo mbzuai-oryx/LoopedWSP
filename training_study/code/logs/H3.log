@@ -1,0 +1,3 @@
+H3_hinge_learned {"step": 1000, "time": 251, "n15": {"solved_state": 0.0, "solved_readout": 0.54, "every_loop_exact": 0.0}}
+H3_hinge_learned {"step": 2000, "time": 655, "n15": {"solved_state": 0.0, "solved_readout": 0.72, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.0, "solved_readout": 0.72, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
+H3_hinge_learned {"step": 3000, "time": 1026, "n15": {"solved_state": 0.0, "solved_readout": 0.91, "every_loop_exact": 0.0}, "n15_x2": {"solved_state": 0.0, "solved_readout": 0.91, "every_loop_exact": 0.0}, "n21": {"solved_state": 0.0, "solved_readout": 0.0, "every_loop_exact": 0.0}}
